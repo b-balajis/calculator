@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    
+    <style>
+        body{
+            padding: 0 15vw;
+            text-align: center;
+            font-family: cursive;
+        }
+        table{
+            border: 2px black solid;
+            padding: 6px 12px;
+        }
+        input[type='button']{
+            width: 16vw;
+            height: 10vh;
+            border-radius: 6px;
+            font-size: 27px;
+            cursor: pointer;
+            background-color: antiquewhite;
+        }
+        input[type='button']:hover{
+            color: white;
+            background-color: black;
+        }
+        input[type='text']{
+            width: 48vw;
+            height: 10vh;
+            border: 2px black solid;
+            font-size: 30px;
+            border-radius: 10px;
+            background-color: azure;
+        }
+        #clr{
+            background-color: red;
+        }
+        #clr:hover{
+            background-color: red;
+        }
+        h1{
+            font-size: 3rem;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+    <div class="calc">
+        <h1>Calculator</h1>
+        <table>
+            <tr>
+                <td colspan="3"><input type="text" value="" id="result" name="result"></td>
+                <td><input type="button" value="C" id="clr" name="clear" onclick="clr()"></td>
+            </tr>
+            <!---<tr>
+                <td><input type="button" value="1/x" name="1/x" onclick="view('1/')"></td>
+                <td><input type="button" value="x²" name="x²" onclick="sqr(), view('²')"></td>
+                <td><input type="button" value="√x" name="√x" onclick="view('√x')"></td>
+                <td><input type="button" value="%" name="%" onclick="view('%')"></td>
+            </tr>-->
+            <tr>
+                <td><input type="button" value="7" name="7" onclick="view('7')"></td>
+                <td><input type="button" value="8" name="8" onclick="view('8')"></td>
+                <td><input type="button" value="9" name="9" onclick="view('9')"></td>
+                <td><input type="button" value="+" name="+" onclick="view('+')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="4" name="4" onclick="view('4')"></td>
+                <td><input type="button" value="5" name="5" onclick="view('5')"></td>
+                <td><input type="button" value="6" name="6" onclick="view('6')"></td>
+                <td><input type="button" value="-" name="-" onclick="view('-')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="1" name="1" onclick="view('1')"></td>
+                <td><input type="button" value="2" name="2" onclick="view('2')"></td>
+                <td><input type="button" value="3" name="3" onclick="view('3')"></td>
+                <td><input type="button" value="*" name="*" onclick="view('*')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="." name="." onclick="view('.')"></td>
+                <td><input type="button" value="0" name="0" onclick="view('0')"></td>
+                <td><input type="button" value="/" name="/" onclick="view('/')"></td>
+                <td><input type="button" value="=" name="=" onclick="compute()"></td>
+            </tr>
+        </table>
+    </div>
+</body>
+    <script>
+        function view(num){
+            document.getElementById('result').value+=num
+        }
+        function clr(){
+            document.getElementById('result').value=""
+        }
+        function compute(){
+            let x = document.getElementById("result").value
+            let y = eval(x)
+            document.getElementById("result").value=y
+        }
+        function sqr(){
+            let x = document.getElementById("result").value
+            var num = Math.pow(x, 2);
+        }
+    </script>
+</html>
